@@ -101,8 +101,8 @@ for(let year=2014; year<=2050; year++){
 8. Write a JavaScript program where the program takes a random integer between 1 to 10, 
 // the user is then prompted to input a guess number. If the user input matches with guess number, 
 the program will display a message "Good Work" otherwise display a message "Not matched".
-
 */
+
 
 // const input = prompt("Guess the number between 0 and 9 inclusive");
 const randomNumber = Math.trunc(Math.random() * 9);
@@ -428,6 +428,209 @@ function newStr6(str){
 }
 console.log(newStr6("Hassan"))
 
+
+//36. Write a JavaScript program to check whether the last digit of the three given positive integers is same.
+
+function checkNum9(...num){
+   if(num[0] > 0 && num[1] > 0 && num[2] > 0){
+   	 return (num[0] % 10 === num[1] % 10 && num[1] % 10 === num[2] % 10 && num[2] % 10 === num[0] % 10) ? true : false; 
+   }
+}
+console.log(checkNum9(123,123,123))
+
+//37. Write a JavaScript program to create new string with first 3 characters are in lower case from a given string. 
+// If the string length is less than 3 convert all the characters in upper case.
+
+function newStr7(str){
+   if(str.length <= 3){
+        return str.toUpperCase();
+   }else{
+   	    return str.substring(0,3).toLowerCase().concat(str.slice(3))
+   }
+}
+console.log(newStr7("shRK"))
+
+/*
+38. Write a JavaScript program to check the total marks of a student in various examinations. 
+The student will get A+ grade if the total marks are in the range 89..100 inclusive, 
+if the examination is "Final-exam." the student will get A+ grade and total marks must 
+be greater than or equal to 90. Return true if the student get A+ grade or false otherwise
+*/
+
+function checkNum10(exam, num){
+	let grade = "";
+	if(num >= 89 && num <= 100){
+		grade =  "A+ grade"
+	}
+	if(num >= 90 && grade && exam.toLowerCase() === "final-exam"){
+		   return true;
+	}else{
+		   return false;
+	}
+}
+console.log(checkNum10("Final-exam", 90))
+
+//39. Write a JavaScript program to compute the sum of the two given integers,
+// If the sum is in the range 50..80 return 65 other wise return 80. 
+
+function checkNum11(...num){
+   if(num[0] + num[1] >= 50 && num[0] + num[1] <= 80){
+   	   return 65;
+   }else{
+   	   return 80;
+   }
+}
+console.log(checkNum11(25,56))
+
+//40. Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function checkNum12(...num){
+	if(num[0] > 0 && num[1] > 0){
+	if((num[0] === 8 || num[1] === 8) || (num[0] + num[1] === 8) || (Math.abs(num[0] - num[1]) === 8)){
+      return true;
+	}else{
+		  return false;
+	}
+ }
+      return false;
+}
+console.log(checkNum12(6,14));
+
+//41. . Write a JavaScript program to check three given numbers, if the three numbers are same return 30 
+// otherwise return 20 and if two numbers are same return 40. 
+
+function checkNum13(num1, num2, num3){
+	if(num1 === num2 && num2 === num3 && num3 === num1){
+		  return 30;
+	}
+	if(num1 === num2 || num2 === num3 || num3 === num1){
+		  return 40;
+	}
+	    return 20;
+}
+console.log(checkNum13(11,11,25))
+
+//42.  Write a JavaScript program to check whether three given numbers are increasing in strict mode or in soft mode.
+
+function checkNum14(...num){
+	if(num[0] < num[1] && num[1] < num[2]){
+		  return "Increasing in strict mode"
+	}
+	if(num[1] < num[2]){
+	    return "Increasing in soft mode"
+	}
+	    return "undefined";    
+}
+console.log(checkNum14(12,13,3))
+
+//43. Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+function checkNum15(num1, num2,num3){
+	if(num1 > 0 && num2 > 0 && num3 > 0){
+	if((num1 % 10 === num2 % 10) || (num2 % 10 === num3 % 10) || (num3 % 10 === num1 % 1)){
+	   return true;
+	}
+ }
+}
+console.log(checkNum15(12,22,42));
+
+//44. Write a JavaScript program to check from three given integers that whether a number is greater than or equal to 20 and less than one of the others.
+
+function checkNum16(num1,num2,num3){
+	if((num1 >= 20 && (num1 < num2 || num1 < num3)) || (num2 >= 20 && (num2 < num1 || num2 < num3)) || (num3 >= 20 && (num3 < num2 || num3 < num1))){
+		return true;
+	}
+}
+console.log(checkNum16(21,23,25))
+
+//45. Write a JavaScript program to check two given integer values and return true if one of the number is 15 or if their sum or difference is 15.
+
+function checkNum17(num1,num2){
+	if(num1 === 15 || num2 === 15 || num1 + num2 === 15 || Math.abs(num1 - num2) === 15){
+		 return true;
+	}
+}
+console.log(checkNum17(12,27))
+
+//46. Write a JavaScript program to check two given non-negative integers that whether one of the number (not both) is multiple of 7 or 11.
+
+function checkNum18(num1, num2){
+	if(num1 % 7 === 0 || num2 % 11 === 0 || num2 % 7 === 0 || num1 % 11 === 0){
+		     return true;
+	}
+}
+console.log(checkNum18(14, 20));
+
+//47. Write a JavaScript program to check whether a given number is presents in the range 40..10000.
+
+function checkNum19(num){
+return num > 40 && num < 10000 ? true : false;
+}
+
+//48. Write a JavaScript program to reverse a given string.
+
+function newStr8(str){
+	let str1 = ""
+	for(let i = 1; i <= str.length; i++){
+		str1 += str.at(-i)
+	}
+	return str1;
+}
+console.log(newStr8("hassan"))
+
+//49. Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.
+
+function newStr9(str){
+	let str1 = str.split("");
+	for(let i = 0; i < str1.length; i++){
+			switch(str1[i]){
+			case " ":
+				break;
+			case "z":
+			 str1[i] = "a";
+			  break;
+			case "Z":
+			 str1[i] = "A";
+			  break;
+			default:
+			  str1[i] = String.fromCharCode(1 + str1[i].charCodeAt(0))
+	}
+}	
+return str1.join("");
+}
+console.log(newStr9("hello"))
+
+//50. Write a JavaScript program to capitalize the first letter of each word of a given string.
+
+function newStr10(str){
+	let str1 = str.split(" ");
+	let arr = [];
+	for(let val of str1){
+		arr.push(val.charAt(0).toUpperCase().concat(val.slice(1)));
+	}
+	return arr.join(" ");
+}
+console.log(newStr10("hello everyone"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 36.  Trigno, Apti, Math, Quant  Mathmetics  English, Tense, Active, Passive  English true JavaScript false Java 
 // Turkey, India, Japan  Country Rajasthan  Biggest State  Delhi Capital 18 Adult 11 Minor default case Hello JavaScript
 
@@ -494,6 +697,8 @@ for(let i=1; i <= 50; i++){
    console.log(i)
 }
 
+//38. Write a program to print Fibonacci series of n terms where n is input by user :
+
 let a = 1;
 let b = 1;
 let c = 0;
@@ -506,9 +711,3 @@ if(c > 200){
 	break;
 }
 }
-
-
-
-
-
-
